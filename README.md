@@ -31,3 +31,16 @@ Details of controller design
 # <b>OPTIONAL: Controller Implementation</b>
 
 How can this be implemented on a real system?
+
+<div style="page-break-after: always;"></div>
+
+# <b>Appendix A</b>
+
+Simulink diagram, MATLAB and other code here
+
+<div style="page-break-after: always;"></div>
+
+# <b>References</b>
+
+Sources used 
+Utilize  https://scholar.google.com/  to obtain citations
