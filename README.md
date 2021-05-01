@@ -1,6 +1,6 @@
 # <div align="center">Group 5 - Inertial Pendulum </div>
 
-#### <div align="center"><br>Hannah Canevaro</br><br>Robert Cossio-Perez</br><br>Tristan Patricio</br><br>Maria Rodriguez</br><br>Brandon Root</br><br>Allison Vang</br></div>
+#### <div align="center"><br>Hannah Canevaro</br><br>Tristan Patricio</br><br>Robert Perez-Cossio</br><br>Maria Rodriguez</br><br>Brandon Root</br><br>Allison Vang</br></div>
 
 <div style="page-break-after: always;"></div>
 
