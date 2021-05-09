@@ -1,4 +1,4 @@
-# <div align="center">Group 5 - Inertial Pendulum </div>
+# <div align="center">Group 5 - Inertia Wheel Pendulum </div>
 
 #### <div align="center"><br>Hannah Canevaro</br><br>Tristan Patricio</br><br>Robert Perez-Cossio</br><br>Maria Rodriguez</br><br>Brandon Root</br><br>Allison Vang</br></div>
 
