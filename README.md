@@ -28,9 +28,8 @@ Normally two position sensors would be used, however for this project, they will
 <br>Once the pendulum is vertical, the control will take over and maintain a theta close to pi in order to maintain a vertical position. This will last, still utilzing the inertial mass's angular velocity, until the system is turned off.</br>
 <div style="page-break-after: always;"></div>
 
-# <b>OPTIONAL: Controller Implementation</b>
-
-How can this be implemented on a real system?
+# <b>Controller Implementation</b>
+<br> The Inertial Wheel Pendulum can potetially be designed as a sort of metronome or timing clock. By turning off and on at repeated intervals, an oscillitory motion could be obtained. This, along with a sort of proximity sensor can be used to simulate a type of timing clock within a greater system. </br>
 
 <div style="page-break-after: always;"></div>
 
