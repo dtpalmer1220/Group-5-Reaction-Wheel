@@ -12,7 +12,7 @@ In this project, the Inertial Wheel Pendulum, or IWP, was investigated and model
 
 # <b>Modeling:</b>
 
-System Model and Related Calulations :(
+![Image of IWP] (https://www.researchgate.net/profile/Vijay-Muralidharan/publication/267559849/figure/fig3/AS:667641387679744@1536189519043/Schematic-of-the-inertia-wheel-pendulum-system.png)
 
 <div style="page-break-after: always;"></div>
 
