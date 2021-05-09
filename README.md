@@ -35,108 +35,108 @@ How can this be implemented on a real system?
 <div style="page-break-after: always;"></div>
 
 # <b>Appendix A - MATLab Code</b>
-<b>Variable Initialization:</b>
-<b>clc,clear all;</b>
-<b>% Motor parameters</b>
-<b>R=4.172;</b>
-<b>km=0.00775;</b>
-<b>Umax=13;</b>
-<b>% IWP Model</b>
-<b>g=9.81;</b>
-<b>mgl=0.12597;</b>
-<b>mbg=mgl</b>
-<b>d11=0.0014636;</b>
-<b>d12=0.0000076;</b>
-<b>d21=d12;</b>
-<b>d22=d21;</b>
-<b>J= (d11*d22-d12*d21)/d12;</b>
-<b>D=[d11 d12;d21 d22];</b>
-<b>Di=inv(D);</b>
-<b>di11=Di(1,1)</b>
-<b>di12=Di(1,2)</b>
-<b>di21=Di(2,1)</b>
-<b>di22=Di(2,2)</b>
-<b>% Linear approximate model of IWP</b>
-<b>A=[0 1 0;di11*mbg 0 0;di21*mbg 0 0]</b>
-<b>B=[0;di12*km/R;di22*km/R]</b>
-<b>% Controllability determination</b>
-<b>disp('Is system controllable?');</b>
-<b>Pc=ctrb(A,B);</b>
-<b>if rank(Pc) == size(Pc)</b>
-<b>disp('Yes.');</b>
-<b>else</b>
-<b>disp('No.');</b>
-<b>end</b>
+<br>Variable Initialization:</br>
+<br>clc,clear all;</br>
+<br>% Motor parameters</br>
+<br>R=4.172;</br>
+<br>km=0.00775;</br>
+<br>Umax=13;</br>
+<br>% IWP Model</br>
+<br>g=9.81;</br>
+<br>mgl=0.12597;</br>
+<br>mbg=mgl</br>
+<br>d11=0.0014636;</br>
+<br>d12=0.0000076;</br>
+<br>d21=d12;</br>
+<br>d22=d21;</br>
+<br>J= (d11*d22-d12*d21)/d12;</br>
+<br>D=[d11 d12;d21 d22];</br>
+<br>Di=inv(D);</br>
+<br>di11=Di(1,1)</br>
+<br>di12=Di(1,2)</br>
+<br>di21=Di(2,1)</br>
+<br>di22=Di(2,2)</br>
+<br>% Linear approximate model of IWP</br>
+<br>A=[0 1 0;di11*mbg 0 0;di21*mbg 0 0]</br>
+<br>B=[0;di12*km/R;di22*km/R]</br>
+<br>% Controllability determination</br>
+<br>disp('Is system controllable?');</b>r
+<br>Pc=ctrb(A,B);</br>
+<br>if rank(Pc) == size(Pc)</br>
+<br>disp('Yes.');</b>r
+<br>else</br>
+<br>disp('No.');</br>
+<br>end</br>
 
-<b>% Nonlinear controller</b>
-<b>Kd=20;</b>
-<b>V0=2*mbg</b>
-<b>d=(Umax*km)/(R*Kd*V0)</b>
+<br>% Nonlinear controller</br>
+<br>Kd=20;</br>
+<br>V0=2*mbg</br>
+<br>d=(Umax*km)/(R*Kd*V0)</br>
 
-<b>%Linear state feedback controller at the operation point</b>
-<b>n=1</b>
-<b>c=-570</b>
-<b>xd=[n*pi 0 c]</b>
+<br>%Linear state feedback controller at the operation point</b>
+<br>n=1</br>
+<br>c=-570</br>
+<br>xd=[n*pi 0 c]</br>
 
-<b>% Desired closed-loop eigenvalues</b>
-<b>lambda1= -9.27 + 20.6i;</b>
-<b>lambda2= -9.27 - 20.6i;</b>
-<b>lambda3= -0.719;</b>
-<b>Vp=[lambda1 lambda2 lambda3]</b>
-<b>K = place(A,B,Vp)</b>
-<b>% Verifying closed-loop eigenvalues</b>
-<b>Vp_=eig(A-B*K)</b>
+<br>% Desired closed-loop eigenvalues</br>
+<br>lambda1= -9.27 + 20.6i;</br>
+<br>lambda2= -9.27 - 20.6i;</br>
+<br>lambda3= -0.719;</br>
+<br>Vp=[lambda1 lambda2 lambda3]</br>
+<br>K = place(A,B,Vp)</br>
+<br>% Verifying closed-loop eigenvalues</br>
+<br>Vp_=eig(A-B*K)</br>
 
-<b>NonLinear Control</b>
-<b>function [nlc,V,Verror] = fcn(x,d,V0)</b>
-<b>%#codegen</b>
-<b>V0=2*mbg</b>
-<b>mgl=0.12597;</b>
-<b>mbg=mgl;</b>
-<b>R=4.172;</b>
-<b>km=0.00775;</b>
-<b>Kd=20;</b>
-<b>d11=0.0014636;</b>
-<b>d12=0.0000076;</b>
-<b>d21=d12;</b>
-<b>d22=d21;</b>
-<b>J=(d11*d22-d12*d21)/d12;</b>
-<b>if x(2)>d</b>
-<b>satx2=d;</b>
-<b>elseif x(2)<-d</b>
-<b>satx2=-d;</b>
-<b>else satx2=x(2);</b>
-<b>end</b>
-<b>%-----------------energy---------------------</b>
-<b>V=(J/2)*x(2)^2+mbg*(1-cos(x(1)));</b>
-<b>%------------nonlinear control---------------</b>
-<b>nlc=(R/km)*Kd*satx2*(V-V0);</b>
-<b>%-----------energy error---------------------</b>
-<b>Verror=V-V0;</b>
+<br>NonLinear Control</br>
+<br>function [nlc,V,Verror] = fcn(x,d,V0)</br>
+<br>%#codegen</br>
+<br>V0=2*mbg</br>
+<br>mgl=0.12597;</br>
+<br>mbg=mgl;</br>
+<br>R=4.172;</br>
+<br>km=0.00775;</br>
+<br>Kd=20;</br>
+<br>d11=0.0014636;</br>
+<br>d12=0.0000076;</br>
+<br>d21=d12;</br>
+<br>d22=d21;</br>
+<br>J=(d11*d22-d12*d21)/d12;</br>
+<br>if x(2)>d</br>
+<br>satx2=d;</br>
+<br>elseif x(2)<-d</br>
+<br>satx2=-d;</br>
+<br>else satx2=x(2);</br>
+<br>end</br>
+<br>%-----------------energy---------------------</br>
+<br>V=(J/2)*x(2)^2+mbg*(1-cos(x(1)));</b>
+<br>%------------nonlinear control---------------</br>
+<br>nlc=(R/km)*Kd*satx2*(V-V0);</br>
+<br>%-----------energy error---------------------</br>
+<br>Verror=V-V0;</br>
 
-<b>Linear Control:</b>
-<b>function lc = fcn(x,K)</b>
-<b>%#codegen}</b>
-<b>n=1;</b>
-<b>c=-570;</b>
-<b>xd=[n*pi; 0; c];</b>
-<b>z=x-xd;</b>
-<b>%--------linear control-----------</b>
-<b>lc =-K'*z;</b>
+<br>Linear Control:</br>
+<br>function lc = fcn(x,K)</br>
+<br>%#codegen}</br>
+<br>n=1;</br>
+<br>c=-570;</br>
+<br>xd=[n*pi; 0; c];</br>
+<br>z=x-xd;</br>
+<br>%--------linear control-----------</br>
+<br>lc =-K'*z;</br>
 
-<b>Control Communitcation: </b>
-<b>function controller = fcn(nlc, lc, x)</b>
-<b>%#codegen</b>
-<b>n=1;</b>
-<b>c=-570;</b>
-<b>xd=[n*pi; 0; c];</b>
-<b>z=x-xd;</b>
-<b>if z(1)^2+z(2)^2<=0.01</b>
-<b>%-----linear control action------------</b>
-<b>controller=lc;</b>
-<b>%-----nonlinear control action---------</b>
-<b>else controller=nlc;</b>
-<b>end</b>
+<br>Control Communitcation: </br>
+<br>function controller = fcn(nlc, lc, x)</br>
+<br>%#codegen</br>
+<br>n=1;</br>
+<br>c=-570;</br>
+<br>xd=[n*pi; 0; c];</br>
+<br>z=x-xd;</br>
+<br>if z(1)^2+z(2)^2<=0.01</br>
+<br>%-----linear control action------------</br>
+<br>controller=lc;</br>
+<br>%-----nonlinear control action---------</br>
+<br>else controller=nlc;</br>
+<br>end</br>
 
 
 Simulink diagram, MATLAB and other code here
