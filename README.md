@@ -11,8 +11,9 @@ In this project, the Inertial Wheel Pendulum, or IWP, was investigated and model
 <div style="page-break-after: always;"></div>
 
 # <b>Modeling:</b>
+A graphical representation of our model can be seen in the figure below.
 <p align="center"><br>
-![Image of IWP](https://www.researchgate.net/profile/Vijay-Muralidharan/publication/267559849/figure/fig3/AS:667641387679744@1536189519043/Schematic-of-the-inertia-wheel-pendulum-system.png)
+<img src=https://www.researchgate.net/profile/Vijay-Muralidharan/publication/267559849/figure/fig3/AS:667641387679744@1536189519043/Schematic-of-the-inertia-wheel-pendulum-system.png>
 </br></p>
 
 <div style="page-break-after: always;"></div>
