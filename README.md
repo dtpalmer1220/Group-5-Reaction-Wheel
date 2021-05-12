@@ -88,56 +88,18 @@ Normally two position sensors would be used, however for this project, they will
 <br>% Verifying closed-loop eigenvalues</br>
 <br>Vp_=eig(A-B*K)</br>
 
-<br>NonLinear Control</br>
-<br>function [nlc,V,Verror] = fcn(x,d,V0)</br>
-<br>%#codegen</br>
-<br>V0=2*mbg</br>
-<br>mgl=0.12597;</br>
-<br>mbg=mgl;</br>
-<br>R=4.172;</br>
-<br>km=0.00775;</br>
-<br>Kd=20;</br>
-<br>d11=0.0014636;</br>
-<br>d12=0.0000076;</br>
-<br>d21=d12;</br>
-<br>d22=d21;</br>
-<br>J=(d11*d22-d12*d21)/d12;</br>
-<br>if x(2)>d</br>
-<br>satx2=d;</br>
-<br>elseif x(2)<-d</br>
-<br>satx2=-d;</br>
-<br>else satx2=x(2);</br>
-<br>end</br>
-<br>%-----------------energy---------------------</br>
-<br>V=(J/2)*x(2)^2+mbg*(1-cos(x(1)));</b>
-<br>%------------nonlinear control---------------</br>
-<br>nlc=(R/km)*Kd*satx2*(V-V0);</br>
-<br>%-----------energy error---------------------</br>
-<br>Verror=V-V0;</br>
+<br>% Close Loop Model</br>
+<br>t = 0:0.01:5;</br>
+<br>u = .001*ones(size(t));</br>
+<br>x0 = [0.01,0,0];</br>
+<br>sys_cl = ss(A-B*K,B,C,0);</br>
+<br>lsim(sys_cl,u,t,x0)</br>
+<br>xlabel('Time (sec)')</br>
+<br>ylabel('Pendulum Position (Theta)')</br>
 
-<br>Linear Control:</br>
-<br>function lc = fcn(x,K)</br>
-<br>%#codegen}</br>
-<br>n=1;</br>
-<br>c=-570;</br>
-<br>xd=[n*pi; 0; c];</br>
-<br>z=x-xd;</br>
-<br>%--------linear control-----------</br>
-<br>lc =-K'*z;</br>
 
-<br>Control Communitcation: </br>
-<br>function controller = fcn(nlc, lc, x)</br>
-<br>%#codegen</br>
-<br>n=1;</br>
-<br>c=-570;</br>
-<br>xd=[n*pi; 0; c];</br>
-<br>z=x-xd;</br>
-<br>if z(1)^2+z(2)^2<=0.01</br>
-<br>%-----linear control action------------</br>
-<br>controller=lc;</br>
-<br>%-----nonlinear control action---------</br>
-<br>else controller=nlc;</br>
-<br>end</br>
+
+
 
 <br>All Code obtained from [2]</br>
 
