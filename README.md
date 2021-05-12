@@ -69,22 +69,13 @@ Normally two position sensors would be used, however for this project, they will
 <br>disp('No.');</br>
 <br>end</br>
 
-<br>% Nonlinear controller</br>
-<br>Kd=20;</br>
-<br>V0=2*mbg</br>
-<br>d=(Umax*km)/(R*Kd*V0)</br>
-
-<br>%Linear state feedback controller at the operation point</b>
-<br>n=1</br>
-<br>c=-570</br>
-<br>xd=[n*pi 0 c]</br>
-
 <br>% Desired closed-loop eigenvalues</br>
 <br>lambda1= -9.27 + 20.6i;</br>
 <br>lambda2= -9.27 - 20.6i;</br>
 <br>lambda3= -0.719;</br>
 <br>Vp=[lambda1 lambda2 lambda3]</br>
 <br>K = place(A,B,Vp)</br>
+
 <br>% Verifying closed-loop eigenvalues</br>
 <br>Vp_=eig(A-B*K)</br>
 
