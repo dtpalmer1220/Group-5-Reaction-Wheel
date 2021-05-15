@@ -58,7 +58,7 @@ No sensor calibration is needed for this project.
 
 <div style="page-break-after: always;"></div>
 
-# <b>Sensor Controller Design and Simulations:</b>
+# <b>Controller Design and Simulations:</b>
 Our system requires two controllers to be present in order to function properly. The first being a swing up control and the second being a balance control once the swing up has achieved its purpose.
 <br>The swing up control will bring the pendulum from a resting position, swing it back and forth utilizing the angular velocity of the rotating inertial mass until the angle of the pendumlums bar is vertical (theta = pi). This will then allow the balance control to take over. </br>
 Once the pendulum is vertical, the control will take over and maintain a theta close to pi in order to maintain a vertical position. This will last, still utilzing the inertial mass's angular velocity, until the system is turned off.
