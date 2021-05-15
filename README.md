@@ -6,7 +6,7 @@
 
 # <b>Introduction:</b>
 
-In this project, the Inertial Wheel Pendulum, or IWP, was investigated and modeled. The IWP utilizes the angular momentum of a mass to swing a pendulum bar up and balance the bar vertically. This project is a great practice in control systems. Utilizing a single motor and two sensors, the IWP will self balance upon having a force act upon it and changing its angle from zero to some other value. This will begin a swing up control and then balance the beam vertically, utilizing a motor attached to a rotatable mass. This system was first described in Spong et. Al. [1].
+In this project, the Inertial Wheel Pendulum, or IWP, was investigated and modeled. The IWP utilizes the angular momentum of a mass to swing a pendulum bar up and balance the bar vertically. This project is a great practice in control systems. Utilizing a single motor and two sensors, the IWP will self balance upon having a force act upon it and changing its angle from zero to some other value. This will begin a swing up control and then balance the beam vertically, utilizing a motor attached to a rotatable mass. This system was first described in Spong et. Al. [1]. This system has two degrees of freedom, one on the pendulum and one on the actuator iteself.
 
 A capabilities database and a functional viewpoint were created at the beginning of the project. These helped understand the process that we need to model in order to proceed. This step was extremely valuable in taking steps in the right direction. 
 
@@ -31,7 +31,24 @@ A graphical representation of our model can be seen in the figure below.
 <img src=https://www.researchgate.net/profile/Vijay-Muralidharan/publication/267559849/figure/fig3/AS:667641387679744@1536189519043/Schematic-of-the-inertia-wheel-pendulum-system.png>
 </br></p>
 
-This image can be used to determine the matrices needed to control the system. 
+This image can be used to determine the matrices needed to control the system. Utilzing dynamic and control systems principals the following matrices were found that represent a linear model of our system. The following matrices, from Hernandez-Guzman [2], were the matrices used to control our system.
+
+<p align="center"><br>
+<img src=https://user-images.githubusercontent.com/79555262/118376163-2f0e4000-b57b-11eb-9678-badce0111ee2.png
+</br></p>
+<p align="center"><br>
+<img src=https://user-images.githubusercontent.com/79555262/118375982-25d0a380-b57a-11eb-9fcf-43d64f29e783.png
+</br>
+<br>Here g is the gravitational constant, km and R are Armature resistance and torque constant respectively and can be obtained easily</br>
+</p>
+<p align="center"><br>
+<img src=https://user-images.githubusercontent.com/79555262/118376007-43057200-b57a-11eb-92f0-b768bfc674e3.png
+</br>
+<br>The D matrix defined our d values for simplicities sake</br>
+</p>
+
+
+It can be determined the the two matrices A and B are controllable matrices. Thus a gain vector K can be found and a closed loop model (A - BK) can be found.
 
 <div style="page-break-after: always;"></div>
 
@@ -42,13 +59,21 @@ No sensor calibration is needed for this project.
 <div style="page-break-after: always;"></div>
 
 # <b>Sensor Controller Design and Simulations:</b>
-<b>Our system requires two controllers to be present in order to function properly. The first being a swing up control and the second being a balance control once the swing up has achieved its purpose. </br>
+Our system requires two controllers to be present in order to function properly. The first being a swing up control and the second being a balance control once the swing up has achieved its purpose.
 <br>The swing up control will bring the pendulum from a resting position, swing it back and forth utilizing the angular velocity of the rotating inertial mass until the angle of the pendumlums bar is vertical (theta = pi). This will then allow the balance control to take over. </br>
-<br>Once the pendulum is vertical, the control will take over and maintain a theta close to pi in order to maintain a vertical position. This will last, still utilzing the inertial mass's angular velocity, until the system is turned off.</br>
+Once the pendulum is vertical, the control will take over and maintain a theta close to pi in order to maintain a vertical position. This will last, still utilzing the inertial mass's angular velocity, until the system is turned off.
+<br>
+Once the linear model was created, the controllability was determined and the script was ran we obtained the linear simulation results
+<p align="center"><br>
+<img src=https://user-images.githubusercontent.com/79555262/118376543-6b42a000-b57d-11eb-97b3-8ca8cf08d379.png
+</br>
+<br>Output results of linear simulation of Inertial Wheel Pendulum</br>
+</p>
 <div style="page-break-after: always;"></div>
 
 # <b>Controller Implementation</b>
-<br> The Inertial Wheel Pendulum can potetially be designed as a sort of metronome or timing clock. By turning off and on at repeated intervals, an oscillitory motion could be obtained. This, along with a sort of proximity sensor can be used to simulate a type of timing clock within a greater system. </br>
+
+The Inertial Wheel Pendulum can potetially be designed as a sort of metronome or timing clock. By turning off and on at repeated intervals, an oscillitory motion could be obtained. This, along with a sort of proximity sensor can be used to simulate a type of timing clock within a greater system.
 
 <div style="page-break-after: always;"></div>
 
