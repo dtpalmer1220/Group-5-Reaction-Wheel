@@ -8,6 +8,20 @@
 
 In this project, the Inertial Wheel Pendulum, or IWP, was investigated and modeled. The IWP utilizes the angular momentum of a mass to swing a pendulum bar up and balance the bar vertically. This project is a great practice in control systems. Utilizing a single motor and two sensors, the IWP will self balance upon having a force act upon it and changing its angle from zero to some other value. This will begin a swing up control and then balance the beam vertically, utilizing a motor attached to a rotatable mass. This system was first described in Spong et. Al. [1].
 
+A capabilities database and a functional viewpoint were created at the beginning of the project. These helped understand the process that we need to model in order to proceed. This step was extremely valuable in taking steps in the right direction. 
+
+<p align="center"><br>
+<img src=https://user-images.githubusercontent.com/79555262/118375644-d5f0dd00-b577-11eb-84f2-70351b16cded.png
+</br>
+<br>Capabilities Database of the Inertial Wheel Pendulum</br>
+</p>
+
+<p align="center"><br>
+<img src=https://user-images.githubusercontent.com/79555262/118375650-dc7f5480-b577-11eb-9885-2b3c2d288427.png
+</br>
+<br>Functional Viewpoint of the Inertial Wheel Pendulum</br>
+</p>
+
 <div style="page-break-after: always;"></div>
 
 # <b>Modeling:</b>
@@ -15,6 +29,8 @@ A graphical representation of our model can be seen in the figure below.
 <p align="center"><br>
 <img src=https://www.researchgate.net/profile/Vijay-Muralidharan/publication/267559849/figure/fig3/AS:667641387679744@1536189519043/Schematic-of-the-inertia-wheel-pendulum-system.png>
 </br></p>
+
+This image can be used to determine the matrices needed to control the system. 
 
 <div style="page-break-after: always;"></div>
 
@@ -91,6 +107,8 @@ Normally two position sensors would be used, however for this project, they will
 
 
 
+
+<br>All Code obtained from [2]</br>
 
 Simulink diagram, MATLAB and other code here
 
