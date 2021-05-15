@@ -22,6 +22,7 @@ A capabilities database and a functional viewpoint were created at the beginning
 <br>Functional Viewpoint of the Inertial Wheel Pendulum</br>
 </p>
 
+Utilizing Spong et. Al. [1] and Hernandez-Guzman [2] we were able to begin to model the system and determine if the model is controllable.
 <div style="page-break-after: always;"></div>
 
 # <b>Modeling:</b>
