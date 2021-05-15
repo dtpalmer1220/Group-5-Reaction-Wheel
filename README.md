@@ -36,7 +36,7 @@ This image can be used to determine the matrices needed to control the system.
 
 # <b>Sensor Calibration:</b>
 
-Normally two position sensors would be used, however for this project, they will not be utilized and thus no calibration is needed. 
+No sensor calibration is needed for this project.
 
 <div style="page-break-after: always;"></div>
 
