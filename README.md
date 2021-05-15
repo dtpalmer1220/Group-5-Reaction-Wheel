@@ -26,7 +26,7 @@ Utilizing Spong et. Al. [1] and Hernandez-Guzman [2] we were able to begin to mo
 <div style="page-break-after: always;"></div>
 
 # <b>Modeling:</b>
-A graphical representation of our model can be seen in the figure below.
+A visual representation of our model can be seen in the figure below.
 <p align="center"><br>
 <img src=https://www.researchgate.net/profile/Vijay-Muralidharan/publication/267559849/figure/fig3/AS:667641387679744@1536189519043/Schematic-of-the-inertia-wheel-pendulum-system.png>
 </br></p>
@@ -48,7 +48,7 @@ This image can be used to determine the matrices needed to control the system. U
 </p>
 
 
-It can be determined the the two matrices A and B are controllable matrices. Thus a gain vector K can be found and a closed loop model (A - BK) can be found.
+It can be determined the the two matrices A and B are controllable matrices. Thus a gain vector K can be found and a closed loop model (A - BK) can be found. The MATLab code for the creation of the model and controllibility determination can be found in Appendix A.
 
 <div style="page-break-after: always;"></div>
 
@@ -130,18 +130,10 @@ The Inertial Wheel Pendulum can potetially be designed as a sort of metronome or
 <br>xlabel('Time (sec)')</br>
 <br>ylabel('Pendulum Position (Theta)')</br>
 
-
-
-
-
 <br>All Code obtained from [2]</br>
-
-Simulink diagram, MATLAB and other code here
 
 <div style="page-break-after: always;"></div>
 
 # <b>References</b>
 <br>[1] M. W. Spong, P. Corke, and R. Lozano, Nonlinear control of the reaction wheel pendulum,Automatica, vol. 37, no. 11, pp. 1845–1851, 2001</br>
 <br>[2] V. M. Hernandez-Guzman and R. Silva-Ortigoza, Automatic Control with Experiments, Springer, 2019</br>
-Sources used 
-Utilize  https://scholar.google.com/  to obtain citations
