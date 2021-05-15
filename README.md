@@ -92,8 +92,6 @@ Normally two position sensors would be used, however for this project, they will
 
 
 
-<br>All Code obtained from [2]</br>
-
 Simulink diagram, MATLAB and other code here
 
 <div style="page-break-after: always;"></div>
