@@ -105,7 +105,7 @@ The Inertial Wheel Pendulum can potetially be designed as a sort of metronome or
 <br>A=[0 1 0;di11\*mbg 0 0;di21\*mbg 0 0]</br>
 <br>B=[0;di12\*km/R;di22\*km/R]</br>
 <br>% Controllability determination</br>
-<br>disp('Is system controllable?');</b>r
+<br>disp('Is system controllable?');</br>
 <br>Pc=ctrb(A,B);</br>
 <br>if rank(Pc) == size(Pc)</br>
 <br>disp('Yes.');</b>r
