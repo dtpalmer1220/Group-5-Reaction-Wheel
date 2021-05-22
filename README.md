@@ -125,7 +125,7 @@ The Inertial Wheel Pendulum can potetially be designed as a sort of metronome or
 
 <br>% Close Loop Model</br>
 <br>t = 0:0.01:5;</br>
-<br>u = .001*ones(size(t));</br>
+<br>u = .001\*ones(size(t));</br>
 <br>x0 = [0.01,0,0];</br>
 <br>sys_cl = ss(A-B*K,B,C,0);</br>
 <br>lsim(sys_cl,u,t,x0)</br>
