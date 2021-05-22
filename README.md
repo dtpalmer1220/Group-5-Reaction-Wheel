@@ -5,6 +5,8 @@
 <div style="page-break-after: always;"></div>
 
 # <b>Introduction:</b>
+A link to the presentation of this project can be found here: 
+https://github.com/broot97/Group-5-Reaction-Wheel/blob/main/Presentation.mp4
 
 In this project, the Inertial Wheel Pendulum, or IWP, was investigated and modeled. The IWP utilizes the angular momentum of a mass to swing a pendulum bar up and balance the bar vertically. This project is a great practice in control systems. Utilizing a single motor and two sensors, the IWP will self balance upon having a force act upon it and changing its angle from zero to some other value. This will begin a swing up control and then balance the beam vertically, utilizing a motor attached to a rotatable mass. This system was first described in Spong et. Al. [1]. This system has two degrees of freedom, one on the pendulum and one on the actuator iteself.
 
