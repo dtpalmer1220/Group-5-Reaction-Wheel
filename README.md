@@ -89,7 +89,7 @@ The Inertial Wheel Pendulum can potetially be designed as a sort of metronome or
 <br>% IWP Model</br>
 <br>g=9.81;</br>
 <br>mgl=0.12597;</br>
-<br>mbg=mgl</br>
+<br>mbg=mgl;</br>
 <br>d11=0.0014636;</br>
 <br>d12=0.0000076;</br>
 <br>d21=d12;</br>
@@ -97,13 +97,13 @@ The Inertial Wheel Pendulum can potetially be designed as a sort of metronome or
 <br>J= (d11\*d22-d12\*d21)/d12;</br>
 <br>D=[d11 d12;d21 d22];</br>
 <br>Di=inv(D);</br>
-<br>di11=Di(1,1)</br>
-<br>di12=Di(1,2)</br>
-<br>di21=Di(2,1)</br>
-<br>di22=Di(2,2)</br>
+<br>di11=Di(1,1);</br>
+<br>di12=Di(1,2);</br>
+<br>di21=Di(2,1);</br>
+<br>di22=Di(2,2);</br>
 <br>% Linear approximate model of IWP</br>
-<br>A=[0 1 0;di11\*mbg 0 0;di21\*mbg 0 0]</br>
-<br>B=[0;di12\*km/R;di22\*km/R]</br>
+<br>A=[0 1 0;di11\*mbg 0 0;di21\*mbg 0 0];</br>
+<br>B=[0;di12\*km/R;di22\*km/R];</br>
 <br>C = eye(size(A));</br>
 <br>% Controllability determination</br>
 <br>disp('Is system controllable?');</br>
@@ -118,11 +118,11 @@ The Inertial Wheel Pendulum can potetially be designed as a sort of metronome or
 <br>lambda1= -9.27 + 20.6i;</br>
 <br>lambda2= -9.27 - 20.6i;</br>
 <br>lambda3= -0.719;</br>
-<br>Vp=[lambda1 lambda2 lambda3]</br>
-<br>K = place(A,B,Vp)</br>
+<br>Vp=[lambda1 lambda2 lambda3];</br>
+<br>K = place(A,B,Vp);</br>
 
 <br>% Verifying closed-loop eigenvalues</br>
-<br>Vp_=eig(A-B\*K)</br>
+<br>Vp_=eig(A-B\*K);</br>
 
 <br>% Close Loop Model</br>
 <br>t = 0:0.01:5;</br>
