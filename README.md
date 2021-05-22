@@ -104,6 +104,7 @@ The Inertial Wheel Pendulum can potetially be designed as a sort of metronome or
 <br>% Linear approximate model of IWP</br>
 <br>A=[0 1 0;di11\*mbg 0 0;di21\*mbg 0 0]</br>
 <br>B=[0;di12\*km/R;di22\*km/R]</br>
+<br>C = eye(size(A));</br>
 <br>% Controllability determination</br>
 <br>disp('Is system controllable?');</br>
 <br>Pc=ctrb(A,B);</br>
