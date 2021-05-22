@@ -80,7 +80,7 @@ The Inertial Wheel Pendulum can potetially be designed as a sort of metronome or
 <div style="page-break-after: always;"></div>
 
 # <b>Appendix A - MATLab Code</b>
-<br>Variable Initialization:</br>
+<br>Closed Loop Model:</br>
 <br>clc,clear all;</br>
 <br>% Motor parameters</br>
 <br>R=4.172;</br>
@@ -94,7 +94,7 @@ The Inertial Wheel Pendulum can potetially be designed as a sort of metronome or
 <br>d12=0.0000076;</br>
 <br>d21=d12;</br>
 <br>d22=d21;</br>
-<br>J= (d11*d22-d12*d21)/d12;</br>
+<br>J= (d11\*d22-d12\*d21)/d12;</br>
 <br>D=[d11 d12;d21 d22];</br>
 <br>Di=inv(D);</br>
 <br>di11=Di(1,1)</br>
@@ -102,8 +102,8 @@ The Inertial Wheel Pendulum can potetially be designed as a sort of metronome or
 <br>di21=Di(2,1)</br>
 <br>di22=Di(2,2)</br>
 <br>% Linear approximate model of IWP</br>
-<br>A=[0 1 0;di11*mbg 0 0;di21*mbg 0 0]</br>
-<br>B=[0;di12*km/R;di22*km/R]</br>
+<br>A=[0 1 0;di11\*mbg 0 0;di21\*mbg 0 0]</br>
+<br>B=[0;di12\*km/R;di22\*km/R]</br>
 <br>% Controllability determination</br>
 <br>disp('Is system controllable?');</b>r
 <br>Pc=ctrb(A,B);</br>
@@ -121,7 +121,7 @@ The Inertial Wheel Pendulum can potetially be designed as a sort of metronome or
 <br>K = place(A,B,Vp)</br>
 
 <br>% Verifying closed-loop eigenvalues</br>
-<br>Vp_=eig(A-B*K)</br>
+<br>Vp_=eig(A-B\*K)</br>
 
 <br>% Close Loop Model</br>
 <br>t = 0:0.01:5;</br>
